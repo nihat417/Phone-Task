@@ -7,63 +7,76 @@
         mc:Ignorable="d"
         Title="Old Phone" Height="480" Width="320">
     <Grid Background="Black">
+
         <Grid.RowDefinitions>
-            <RowDefinition Height="*" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
+            <RowDefinition />
+            <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="*" />
-        </Grid.ColumnDefinitions>
 
-        <!-- Дисплей -->
-        <Border Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Margin="5" Background="White">
-            <TextBlock FontSize="24" HorizontalAlignment="Center" VerticalAlignment="Center" Text="0" />
-        </Border>
-
-        <!-- Кнопки -->
-        <Button Grid.Row="1" Grid.Column="1" Margin="20" Content="0" Foreground="Gray" Background="Gray"/>
-        <Grid Grid.Row="1" Grid.Column="0">
-            <Grid.RowDefinitions>
-                <RowDefinition/>
-                <RowDefinition/>
-            </Grid.RowDefinitions>
-
-            <Button Grid.Row="0"  Foreground="Black" Background="Gray" Margin="5" Content="⬅️"/>
-            <Button Grid.Row="1"  Background="Green" Margin="5" Content="✆" FontSize="15"/>
+        <Grid Grid.Row="0">
+            <TextBlock Name="textblock" FontSize="12" Text="" Background="AliceBlue" Foreground="Black"/>
         </Grid>
+        
 
-
-        <Grid Grid.Row="1" Grid.Column="2">
+        <Grid Grid.Row="1">
             <Grid.RowDefinitions>
-                <RowDefinition/>
-                <RowDefinition/>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
 
-            <Button Grid.Row="0"  Foreground="Black" Background="Gray" Margin="5" Content="→"/>
-            <Button Grid.Row="1"  Background="Red" Margin="5" Content="✆" FontSize="15"/>
+           
+
+            <!-- Кнопки -->
+            <Button Grid.Row="1" Grid.Column="1" Margin="20" Content="0" Foreground="Gray" Background="Gray"/>
+            <Grid Grid.Row="1" Grid.Column="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+
+                <Button Grid.Row="0"  Foreground="Black" Background="Gray" Margin="5" Content="⬅️"/>
+                <Button Grid.Row="1"  Background="Green" Margin="5" Content="✆" FontSize="15"/>
+            </Grid>
+
+
+            <Grid Grid.Row="1" Grid.Column="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+
+                <Button Grid.Row="0"  Foreground="Black" Background="Gray" Margin="5" Content="→"/>
+                <Button Grid.Row="1"  Background="Red" Margin="5" Content="✆" FontSize="15"/>
+            </Grid>
+
+
+            <Button Name="button1" Grid.Row="2" Grid.Column="0" Margin="5" Content="1ᵃᵇᶜ" FontSize="24" Click="Button1_Click" />
+            <Button Name="button2" Grid.Row="2" Grid.Column="1" Margin="5" Content="2ᵈᵉᶠ" FontSize="24" Click="Button2_Click" />
+            <Button Name="button3" Grid.Row="2" Grid.Column="2" Margin="5" Content="3ᵍʰʲ" FontSize="24" Click="Button3_Click"/>
+
+            <Button Name="button4" Grid.Row="3" Grid.Column="0" Margin="5" Content="4ᵏˡᵐ" FontSize="24" Click="Button4_Click"/>
+            <Button Name="button5" Grid.Row="3" Grid.Column="1" Margin="5" Content="5ⁿᵒᵖ" FontSize="24" Click="Button5_Click"/>
+            <Button Name="button6" Grid.Row="3" Grid.Column="2" Margin="5" Content="6ᵠʳˢ" FontSize="24" Click="Button6_Click"/>
+
+            <Button Name="button7" Grid.Row="4" Grid.Column="0" Margin="5" Content="7ᵗᵘᵛ" FontSize="24"  Click="Button7_Click"/>
+            <Button Name="button8" Grid.Row="4" Grid.Column="1" Margin="5" Content="8ʷˣʸᶻ" FontSize="24" Click="Button8_Click"/>
+            <Button Name="button9" Grid.Row="4" Grid.Column="2" Margin="5" Content="9ᵎˀ" FontSize="24"   Click="Button9_Click"/>
+
+            <Button Name="buttonstar" Grid.Row="5" Grid.Column="0" Margin="5" Content="*" FontSize="24" Click="Buttonstar_Click" />
+            <Button Name="button0" Grid.Row="5" Grid.Column="1" Margin="5" Content="0⁺" FontSize="24"   Click="Button0_Click"  />
+            <Button Name="buttondies" Grid.Row="5" Grid.Column="2" Margin="5" Content="#" FontSize="24" Click="Buttondies_Click" />
         </Grid>
-
-
-        <Button Name="a" Grid.Row="2" Grid.Column="0" Margin="5" Content="1" FontSize="24" />
-        <Button Grid.Row="2" Grid.Column="1" Margin="5" Content="2" FontSize="24" />
-        <Button Grid.Row="2" Grid.Column="2" Margin="5" Content="3" FontSize="24" />
-
-        <Button Grid.Row="3" Grid.Column="0" Margin="5" Content="4" FontSize="24" />
-        <Button Grid.Row="3" Grid.Column="1" Margin="5" Content="5" FontSize="24" />
-        <Button Grid.Row="3" Grid.Column="2" Margin="5" Content="6" FontSize="24" />
-
-        <Button Grid.Row="4" Grid.Column="0" Margin="5" Content="7" FontSize="24" />
-        <Button Grid.Row="4" Grid.Column="1" Margin="5" Content="8" FontSize="24" />
-        <Button Grid.Row="4" Grid.Column="2" Margin="5" Content="9" FontSize="24" />
-
-        <Button Grid.Row="5" Grid.Column="0" Margin="5" Content="*" FontSize="24" />
-        <Button Grid.Row="5" Grid.Column="1" Margin="5" Content="0" FontSize="24" />
-        <Button Grid.Row="5" Grid.Column="2" Margin="5" Content="#" FontSize="24" />
+        
+        
+        
     </Grid>
 </Window>
