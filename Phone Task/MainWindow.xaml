@@ -50,7 +50,7 @@
         </Grid>
 
 
-        <Button Grid.Row="2" Grid.Column="0" Margin="5" Content="1" FontSize="24" />
+        <Button Name="a" Grid.Row="2" Grid.Column="0" Margin="5" Content="1" FontSize="24" />
         <Button Grid.Row="2" Grid.Column="1" Margin="5" Content="2" FontSize="24" />
         <Button Grid.Row="2" Grid.Column="2" Margin="5" Content="3" FontSize="24" />
 

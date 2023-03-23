@@ -13,16 +13,25 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Phone_Task
+namespace Phone_Task;
+
+
+
+public partial class MainWindow : Window
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
-    public partial class MainWindow : Window
+    public MainWindow()
     {
-        public MainWindow()
-        {
-            InitializeComponent();
-        }
+        InitializeComponent();
+        Configure();
     }
+
+    public void Configure()
+    {
+        string num1 = "ABC";
+        a.Content += num1;
+        a.FontSize = 4;
+
+    }
+
+
 }
