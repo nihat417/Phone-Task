@@ -10,15 +10,20 @@
 
         <Grid.RowDefinitions>
             <RowDefinition />
+            <RowDefinition />
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
         <Grid Grid.Row="0">
-            <TextBlock Name="textblock" FontSize="12" Text="" Background="AliceBlue" Foreground="Black"/>
+            <TextBox Name="textblock" FontSize="12" Background="White" Text=""  Foreground="Black" TextChanged="Textblock_TextChanged"/>
         </Grid>
-        
 
         <Grid Grid.Row="1">
+            <ListView x:Name="listw" Background="White" Foreground="Black" FontSize="12" ItemsSource="{Binding AvailableTexts}"/>
+        </Grid>
+
+
+        <Grid Grid.Row="2">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*" />
                 <RowDefinition Height="Auto" />
@@ -36,7 +41,7 @@
            
 
             <!-- Кнопки -->
-            <Button Grid.Row="1" Grid.Column="1" Margin="20" Content="0" Foreground="Gray" Background="Gray"/>
+            <Button Grid.Row="1" Grid.Column="1" Margin="20" Content="0K" Foreground="Black" Background="Gray" Click="Button_Click"/>
             <Grid Grid.Row="1" Grid.Column="0">
                 <Grid.RowDefinitions>
                     <RowDefinition/>
@@ -69,10 +74,10 @@
 
             <Button Name="button7" Grid.Row="4" Grid.Column="0" Margin="5" Content="7ᵗᵘᵛ" FontSize="24"  Click="Button7_Click"/>
             <Button Name="button8" Grid.Row="4" Grid.Column="1" Margin="5" Content="8ʷˣʸᶻ" FontSize="24" Click="Button8_Click"/>
-            <Button Name="button9" Grid.Row="4" Grid.Column="2" Margin="5" Content="9ᵎˀ" FontSize="24"   Click="Button9_Click"/>
+            <Button Name="button9" Grid.Row="4" Grid.Column="2" Margin="5" Content="9ᵎˀ⁺" FontSize="24"   Click="Button9_Click"/>
 
             <Button Name="buttonstar" Grid.Row="5" Grid.Column="0" Margin="5" Content="*" FontSize="24" Click="Buttonstar_Click" />
-            <Button Name="button0" Grid.Row="5" Grid.Column="1" Margin="5" Content="0⁺" FontSize="24"   Click="Button0_Click"  />
+            <Button Name="button0" Grid.Row="5" Grid.Column="1" Margin="5" Content="0" FontSize="24"   Click="Button0_Click"  />
             <Button Name="buttondies" Grid.Row="5" Grid.Column="2" Margin="5" Content="#" FontSize="24" Click="Buttondies_Click" />
         </Grid>
         

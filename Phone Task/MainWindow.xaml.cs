@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.IO;
 using System.Linq;
 using System.Reflection.Emit;
 using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -21,18 +24,34 @@ namespace Phone_Task;
 
 public partial class MainWindow : Window
 {
+    public ObservableCollection<string> AvailableTexts { get; set; }
+    public string path = "@\"..\\..\\..\\json1.json\")";
+    private List<string> allwords = new List<string>();
+
     private string lastKey = null;
     private int keyCount = 0;
     private DispatcherTimer timer = new DispatcherTimer();
     StringBuilder text = new StringBuilder();
-    
+
+    //----------------------------------------
+
+
+
 
     public MainWindow()
     {
         InitializeComponent();
 
-        timer.Interval = TimeSpan.FromSeconds(25);
+        if (File.Exists("C:\\Users\\akrem\\source\\repos\\Phone Task\\Phone Task\\json1.json"))
+        {
+            var json = File.ReadAllText("C:\\Users\\akrem\\source\\repos\\Phone Task\\Phone Task\\json1.json");
+            allwords = JsonSerializer.Deserialize<List<string>>(json)!;
+        }
+
+        timer.Interval = TimeSpan.FromSeconds(5);
         timer.Tick += Timer_Tick;
+
+
     }
 
     private void KeyPressed(string key)
@@ -56,9 +75,6 @@ public partial class MainWindow : Window
         
         if (int.TryParse(key, out int keyNumber))
         {
-            
-
-            // определение соответствующих букв для данной цифры
             string[] letters = new string[] { "", "", "" };
             switch (keyNumber)
             {
@@ -69,16 +85,16 @@ public partial class MainWindow : Window
                     letters = new string[] { "d", "e", "f" };
                     break;
                 case 3:
-                    letters = new string[] { "g", "h", "i" };
+                    letters = new string[] { "g", "h", "j" };
                     break;
                 case 4:
-                    letters = new string[] { "j", "k", "l" };
+                    letters = new string[] { "k", "l", "m" };
                     break;
                 case 5:
-                    letters = new string[] { "m", "n", "o" };
+                    letters = new string[] { "n", "o", "p" };
                     break;
                 case 6:
-                    letters = new string[] { "p", "q", "r", "s" };
+                    letters = new string[] { "f", "r", "s", };
                     break;
                 case 7:
                     letters = new string[] { "t", "u", "v" };
@@ -87,7 +103,7 @@ public partial class MainWindow : Window
                     letters = new string[] { "w", "x", "y", "z" };
                     break;
                 case 9:
-                    letters = new string[] { "" };
+                    letters = new string[] { "?","!","+" };
                     break;
                 case 0:
                     letters = new string[] { " " };
@@ -173,12 +189,42 @@ public partial class MainWindow : Window
 
     private void Buttondies_Click(object sender, RoutedEventArgs e)
     {
-        KeyPressed("#");
+        textblock.Text += "#";
     }
 
     private void Buttonstar_Click(object sender, RoutedEventArgs e)
     {
-        KeyPressed("*");
+        textblock.Text += "*";
+    }
+
+    private void Button_Click(object sender, RoutedEventArgs e)
+    {
+        allwords.Add(textblock.Text);
+
+        Task.Run(() =>
+        {
+            var jsonStr = JsonSerializer.Serialize(allwords);
+            File.WriteAllText("C:\\Users\\akrem\\source\\repos\\Phone Task\\Phone Task\\json1.json", jsonStr);
+
+            MessageBox.Show("Add process is successfully.", "", MessageBoxButton.OK, MessageBoxImage.Information);
+        });
+    }
+
+
+
+    private void Textblock_TextChanged(object sender, TextChangedEventArgs e)
+    {
+        Task.Run(() =>
+        {
+            Dispatcher.Invoke(() =>
+            {
+                AvailableTexts.Clear();
+
+                foreach (var word in allwords)
+                    if (word.StartsWith(textblock.Text.ToLower()))
+                        AvailableTexts.Add(word);
+            });
+        });
     }
 }
 
