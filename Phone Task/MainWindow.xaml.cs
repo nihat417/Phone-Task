@@ -25,12 +25,12 @@ public partial class MainWindow : Window
     private int keyCount = 0;
     private DispatcherTimer timer = new DispatcherTimer();
     StringBuilder text = new StringBuilder();
+    
 
     public MainWindow()
     {
         InitializeComponent();
 
-        // установка интервала таймера в 2 секунды
         timer.Interval = TimeSpan.FromSeconds(25);
         timer.Tick += Timer_Tick;
     }
@@ -40,6 +40,11 @@ public partial class MainWindow : Window
         if (key == lastKey)
         {
             keyCount++;
+            text.Append(textblock.Text);
+            if(text.Length > 0)
+            {
+                text.Remove(text.Length - 1,1);
+            }
         }
         else
         {
@@ -48,7 +53,7 @@ public partial class MainWindow : Window
             keyCount = 1;
         }
 
-        // проверка, является ли текущая клавиша цифровой
+        
         if (int.TryParse(key, out int keyNumber))
         {
             
@@ -92,9 +97,13 @@ public partial class MainWindow : Window
             if (keyCount <= letters.Length)
             {
                 text.Append(letters[keyCount - 1]);
-                textblock.Text = letters[keyCount - 1];
+                //textblock.Text = letters[keyCount - 1];
                 textblock.Text=text.ToString();
                 //MessageBox.Show(text.ToString());
+            }
+            if(keyCount >= letters.Length)
+            {
+                keyCount = 0;
             }
         }
 
