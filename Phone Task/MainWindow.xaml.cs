@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.IO;
-using System.Linq;
-using System.Reflection.Emit;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
@@ -25,7 +23,7 @@ namespace Phone_Task;
 public partial class MainWindow : Window
 {
     public ObservableCollection<string> AvailableTexts { get; set; }
-    public string path = "@\"..\\..\\..\\json1.json\")";
+    public string path = @"..\..\..\json1.json";
     private List<string> allwords = new List<string>();
 
     private string lastKey = null;
@@ -37,14 +35,13 @@ public partial class MainWindow : Window
 
 
 
-
     public MainWindow()
     {
         InitializeComponent();
 
-        if (File.Exists("C:\\Users\\akrem\\source\\repos\\Phone Task\\Phone Task\\json1.json"))
+        if (File.Exists(@"..\..\..\json1.json"))
         {
-            var json = File.ReadAllText("C:\\Users\\akrem\\source\\repos\\Phone Task\\Phone Task\\json1.json");
+            var json = File.ReadAllText(@"..\..\..\json1.json");
             allwords = JsonSerializer.Deserialize<List<string>>(json)!;
         }
 
@@ -113,9 +110,7 @@ public partial class MainWindow : Window
             if (keyCount <= letters.Length)
             {
                 text.Append(letters[keyCount - 1]);
-                //textblock.Text = letters[keyCount - 1];
                 textblock.Text=text.ToString();
-                //MessageBox.Show(text.ToString());
             }
             if(keyCount >= letters.Length)
             {
@@ -204,7 +199,7 @@ public partial class MainWindow : Window
         Task.Run(() =>
         {
             var jsonStr = JsonSerializer.Serialize(allwords);
-            File.WriteAllText("C:\\Users\\akrem\\source\\repos\\Phone Task\\Phone Task\\json1.json", jsonStr);
+            File.WriteAllText(@"..\..\..\json1.json", jsonStr);
 
             MessageBox.Show("Add process is successfully.", "", MessageBoxButton.OK, MessageBoxImage.Information);
         });

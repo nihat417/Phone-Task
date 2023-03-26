@@ -40,7 +40,7 @@
 
            
 
-            <!-- Кнопки -->
+           
             <Button Grid.Row="1" Grid.Column="1" Margin="20" Content="0K" Foreground="Black" Background="Gray" Click="Button_Click"/>
             <Grid Grid.Row="1" Grid.Column="0">
                 <Grid.RowDefinitions>
