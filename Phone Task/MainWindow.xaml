@@ -38,10 +38,10 @@
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
 
-           
 
-           
-            <Button Grid.Row="1" Grid.Column="1" Margin="20" Content="0K" Foreground="Black" Background="Gray" Click="Button_Click"/>
+
+
+            <Button Grid.Row="1" Grid.Column="1" Margin="20" Content="0K" Foreground="Black" Background="Gray" Click="Button_Click1"/>
             <Grid Grid.Row="1" Grid.Column="0">
                 <Grid.RowDefinitions>
                     <RowDefinition/>
@@ -59,25 +59,25 @@
                     <RowDefinition/>
                 </Grid.RowDefinitions>
 
-                <Button Grid.Row="0"  Foreground="Black" Background="Gray" Margin="5" Content="→"/>
+                <Button Grid.Row="0"  Foreground="Black" Background="Gray" Margin="5" Content="→" />
                 <Button Grid.Row="1"  Background="Red" Margin="5" Content="✆" FontSize="15"/>
             </Grid>
 
 
-            <Button Name="button1" Grid.Row="2" Grid.Column="0" Margin="5" Content="1ᵃᵇᶜ" FontSize="24" Click="Button1_Click" />
-            <Button Name="button2" Grid.Row="2" Grid.Column="1" Margin="5" Content="2ᵈᵉᶠ" FontSize="24" Click="Button2_Click" />
-            <Button Name="button3" Grid.Row="2" Grid.Column="2" Margin="5" Content="3ᵍʰʲ" FontSize="24" Click="Button3_Click"/>
+            <Button Name="button1" Grid.Row="2" Grid.Column="0" Margin="5" Content="1ᵃᵇᶜ" FontSize="24"  />
+            <Button Name="button2" Grid.Row="2" Grid.Column="1" Margin="5" Content="2ᵈᵉᶠ" FontSize="24"  />
+            <Button Name="button3" Grid.Row="2" Grid.Column="2" Margin="5" Content="3ᵍʰʲ" FontSize="24" />
 
-            <Button Name="button4" Grid.Row="3" Grid.Column="0" Margin="5" Content="4ᵏˡᵐ" FontSize="24" Click="Button4_Click"/>
-            <Button Name="button5" Grid.Row="3" Grid.Column="1" Margin="5" Content="5ⁿᵒᵖ" FontSize="24" Click="Button5_Click"/>
-            <Button Name="button6" Grid.Row="3" Grid.Column="2" Margin="5" Content="6ᵠʳˢ" FontSize="24" Click="Button6_Click"/>
+            <Button Name="button4" Grid.Row="3" Grid.Column="0" Margin="5" Content="4ᵏˡᵐ" FontSize="24" />
+            <Button Name="button5" Grid.Row="3" Grid.Column="1" Margin="5" Content="5ⁿᵒᵖ" FontSize="24" />
+            <Button Name="button6" Grid.Row="3" Grid.Column="2" Margin="5" Content="6ᵠʳˢ" FontSize="24" />
 
-            <Button Name="button7" Grid.Row="4" Grid.Column="0" Margin="5" Content="7ᵗᵘᵛ" FontSize="24"  Click="Button7_Click"/>
-            <Button Name="button8" Grid.Row="4" Grid.Column="1" Margin="5" Content="8ʷˣʸᶻ" FontSize="24" Click="Button8_Click"/>
-            <Button Name="button9" Grid.Row="4" Grid.Column="2" Margin="5" Content="9ᵎˀ⁺" FontSize="24"   Click="Button9_Click"/>
+            <Button Name="button7" Grid.Row="4" Grid.Column="0" Margin="5" Content="7ᵗᵘᵛ" FontSize="24"  />
+            <Button Name="button8" Grid.Row="4" Grid.Column="1" Margin="5" Content="8ʷˣʸᶻ" FontSize="24" />
+            <Button Name="button9" Grid.Row="4" Grid.Column="2" Margin="5" Content="9ᵎˀ⁺" FontSize="24"  />
 
             <Button Name="buttonstar" Grid.Row="5" Grid.Column="0" Margin="5" Content="*" FontSize="24" Click="Buttonstar_Click" />
-            <Button Name="button0" Grid.Row="5" Grid.Column="1" Margin="5" Content="0" FontSize="24"   Click="Button0_Click"  />
+            <Button Name="button0" Grid.Row="5" Grid.Column="1" Margin="5" Content="0" FontSize="24"  />
             <Button Name="buttondies" Grid.Row="5" Grid.Column="2" Margin="5" Content="#" FontSize="24" Click="Buttondies_Click" />
         </Grid>
         

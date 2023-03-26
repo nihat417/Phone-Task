@@ -38,6 +38,7 @@ public partial class MainWindow : Window
     public MainWindow()
     {
         InitializeComponent();
+        AddButtonClickHandlers();
 
         if (File.Exists(@"..\..\..\json1.json"))
         {
@@ -132,55 +133,31 @@ public partial class MainWindow : Window
         timer.Stop();
     }
 
-    private void Button1_Click(object sender, RoutedEventArgs e)
+    private void Button_Click(object sender, RoutedEventArgs e)
     {
-        KeyPressed("1");
+        Button button = (Button)sender;
+        KeyPressed(button.Content.ToString());
     }
 
-    private void Button2_Click(object sender, RoutedEventArgs e)
+
+    private void AddButtonClickHandlers()
     {
-        KeyPressed("2");
+        button0.Click += (sender, e) => KeyPressed("0");
+        button1.Click += (sender, e) => KeyPressed("1");
+        button2.Click += (sender, e) => KeyPressed("2");
+        button3.Click += (sender, e) => KeyPressed("3");
+        button4.Click += (sender, e) => KeyPressed("4");
+        button5.Click += (sender, e) => KeyPressed("5");
+        button6.Click += (sender, e) => KeyPressed("6");
+        button7.Click += (sender, e) => KeyPressed("7");
+        button8.Click += (sender, e) => KeyPressed("8");
+        button9.Click += (sender, e) => KeyPressed("9");
     }
 
-    private void Button3_Click(object sender, RoutedEventArgs e)
-    {
-        KeyPressed("3");
-    }
 
-    private void Button4_Click(object sender, RoutedEventArgs e)
-    {
-        KeyPressed("4");
-    }
 
-    private void Button5_Click(object sender, RoutedEventArgs e)
-    {
-        KeyPressed("5");
-    }
 
-    private void Button6_Click(object sender, RoutedEventArgs e)
-    {
-        KeyPressed("6");
-    }
-
-    private void Button7_Click(object sender, RoutedEventArgs e)
-    {
-        KeyPressed("7");
-    }
-
-    private void Button8_Click(object sender, RoutedEventArgs e)
-    {
-        KeyPressed("8");
-    }
-
-    private void Button9_Click(object sender, RoutedEventArgs e)
-    {
-        KeyPressed("9");
-    }
-
-    private void Button0_Click(object sender, RoutedEventArgs e)
-    {
-        KeyPressed("0");
-    }
+    
 
     private void Buttondies_Click(object sender, RoutedEventArgs e)
     {
@@ -192,7 +169,7 @@ public partial class MainWindow : Window
         textblock.Text += "*";
     }
 
-    private void Button_Click(object sender, RoutedEventArgs e)
+    private void Button_Click1(object sender, RoutedEventArgs e)
     {
         allwords.Add(textblock.Text);
 
@@ -221,6 +198,8 @@ public partial class MainWindow : Window
             });
         });
     }
+
+   
 }
 
 
