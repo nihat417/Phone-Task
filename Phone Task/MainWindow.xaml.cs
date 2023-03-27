@@ -23,10 +23,10 @@ namespace Phone_Task;
 public partial class MainWindow : Window
 {
     public ObservableCollection<string> AvailableTexts { get; set; }
-    public string path = @"..\..\..\json1.json";
+    public string? path = @"..\..\..\json1.json";
     private List<string> allwords = new List<string>();
 
-    private string lastKey = null;
+    private string? lastKey = null;
     private int keyCount = 0;
     private DispatcherTimer timer = new DispatcherTimer();
     StringBuilder text = new StringBuilder();
@@ -119,7 +119,6 @@ public partial class MainWindow : Window
             }
         }
 
-        // restart timer
         text.Clear();
         timer.Stop();
         timer.Start();
@@ -133,11 +132,7 @@ public partial class MainWindow : Window
         timer.Stop();
     }
 
-    private void Button_Click(object sender, RoutedEventArgs e)
-    {
-        Button button = (Button)sender;
-        KeyPressed(button.Content.ToString());
-    }
+   
 
 
     private void AddButtonClickHandlers()
@@ -153,11 +148,6 @@ public partial class MainWindow : Window
         button8.Click += (sender, e) => KeyPressed("8");
         button9.Click += (sender, e) => KeyPressed("9");
     }
-
-
-
-
-    
 
     private void Buttondies_Click(object sender, RoutedEventArgs e)
     {
