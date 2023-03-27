@@ -7,13 +7,6 @@ using System.Text.Json;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using System.Windows.Threading;
 
 namespace Phone_Task;
@@ -23,10 +16,10 @@ namespace Phone_Task;
 public partial class MainWindow : Window
 {
     public ObservableCollection<string> AvailableTexts { get; set; }
-    public string? path = @"..\..\..\json1.json";
+    public string path = @"..\..\..\json1.json";
     private List<string> allwords = new List<string>();
 
-    private string? lastKey = null;
+    private string? lastKey;
     private int keyCount = 0;
     private DispatcherTimer timer = new DispatcherTimer();
     StringBuilder text = new StringBuilder();
@@ -40,9 +33,9 @@ public partial class MainWindow : Window
         InitializeComponent();
         AddButtonClickHandlers();
 
-        if (File.Exists(@"..\..\..\json1.json"))
+        if (File.Exists(path))
         {
-            var json = File.ReadAllText(@"..\..\..\json1.json");
+            var json = File.ReadAllText(path);
             allwords = JsonSerializer.Deserialize<List<string>>(json)!;
         }
 
@@ -132,8 +125,6 @@ public partial class MainWindow : Window
         timer.Stop();
     }
 
-   
-
 
     private void AddButtonClickHandlers()
     {
@@ -166,7 +157,7 @@ public partial class MainWindow : Window
         Task.Run(() =>
         {
             var jsonStr = JsonSerializer.Serialize(allwords);
-            File.WriteAllText(@"..\..\..\json1.json", jsonStr);
+            File.WriteAllText(path, jsonStr);
 
             MessageBox.Show("Add process is successfully.", "", MessageBoxButton.OK, MessageBoxImage.Information);
         });
